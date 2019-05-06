@@ -1,39 +1,4 @@
 # import Post from "./generated/prisma.graphql"
-#
-enum CanDrink {
-  YES
-  NO
-}
-
-enum Roids {
-  YES
-  NO
-}
-
-enum UserType {
-  BOUNCER
-  BAR_TENDER
-}
-
-interface User {
-  name: String!
-  ofAge: CanDrink!
-  type: UserType!
-}
-
-type BarTender implements User{
-  type: String!
-  name: String!,
-  ofAge: CanDrink!
-  friendliness: Int!
-}
-
-type Bouncer implements User{
-  type: String!
-  name: String!
-  ofAge: CanDrink!
-  roidRage: Roids!
-}
 
 type Query {
   feed: [Post!]!
@@ -45,5 +10,4 @@ type Mutation {
   createDraft(title: String!, text: String): Post
   deletePost(id: ID!): Post
   publish(id: ID!): Post
-  createUser(name: String!, ofAge: CanDrink!) : User!
 }
